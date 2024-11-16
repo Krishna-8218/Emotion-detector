@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotion Detection</title>
+  
+  <!-- Face-api.js and Custom Script -->
+  <script defer src="face-api.min.js"></script>
+  <script defer src="index.js"></script>
+
+  <!-- Bootstrap CDN for styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ6mN9vGvI6R7sPp9pT1s2aBz9lg0I9Z7gA3MReCbS5S3fC6n0dXdtkZJHRI" crossorigin="anonymous">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f7fa;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Main Content Area */
+    #main {
+      flex: 3;
+      padding: 20px;
+      text-align: center;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      flex: 1;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-left: 2px solid #ccc;
+      overflow-y: auto;
+      border-radius: 8px;
+      margin-left: 20px;
+    }
+
+    /* Video Styling */
+    #video {
+      width: 100%;
+      height: auto;
+      max-width: 640px;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+
+    /* Output Styling */
+    #output {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #444;
+    }
+
+    /* Button Styling */
+    #toggle-camera {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #toggle-camera:hover {
+      background-color: #0056b3;
+    }
+
+    /* Emotion Log Styling */
+    #sidebar h2 {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #emotion-log {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #emotion-log li {
+      font-size: 1em;
+      margin: 10px 0;
+      background-color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      #main {
+        margin-bottom: 20px;
+      }
+      #sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="main" class="d-flex flex-column align-items-center">
+    <h1>Real-time Emotion Detection</h1>
+    <video id="video" autoplay muted></video>
+    <div id="output" class="mt-3">Loading...</div>
+    <button id="toggle-camera">Turn Off Camera</button>
+  </div>
+
+  <div id="sidebar">
+    <h2>Emotion Log</h2>
+    <ul id="emotion-log"></ul>
+  </div>
+
+  <!-- Bootstrap JS (Optional, for any potential interaction) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-B4gt1jrGC7Jh4AgRjskZy2Sy9eAR6eWkk3ti+6T7KXsmr/TAtWl5a28QAKkmDA6P" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0xWjSO+3tPTLynx2oPmlwiCZVsEqaSgIzAD/T4geq1ctWfL4" crossorigin="anonymous"></script>
+
+</body>
+</html>
